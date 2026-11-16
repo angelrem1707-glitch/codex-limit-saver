@@ -1,0 +1,11 @@
+## Usage limits: keep context small
+- One task = one session. New task -> /new. Compact only between finished steps.
+- Bound command output (head/tail/rg -m, wc -l first). Never dump whole logs, JSON/CSV, lockfiles, minified files.
+- Search before reading; read only the needed line range; do not re-read unchanged files.
+- Run the narrowest test/build, quiet mode, show only failures.
+- Two failed attempts on one problem: stop, state the hypothesis, change approach or hand off to a fresh session.
+- Deterministic work (parsing, arithmetic, diffs): write and run a script.
+- No sub-agents for small work. Effort medium by default.
+- Before risky edits: `bash ~/.agents/skills/codex-limit-saver/scripts/checkpoint.sh save <name>`.
+- Never print or store secrets. Ask before deleting data or rewriting git history.
+- Long task: keep PROGRESS.md (done / verified / not done / next step). Details: skill codex-limit-saver.
